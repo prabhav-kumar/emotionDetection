@@ -1,0 +1,351 @@
+:root {
+    --primary-purple: #7B68EE;
+    --primary-purple-light: #9683F0;
+    --primary-purple-dark: #6A5AE0;
+    --white: #FFFFFF;
+    --light-purple: #F5EFFF;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --gray-200: #E5E7EB;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  .patient-main-page {
+    min-height: 100vh;
+    background-color: var(--light-purple);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    padding-top: 0px;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 100px);
+  }
+  
+  /* Therapist View */
+  .therapist-view {
+    max-width: 800px;
+    margin-top: 80px;
+    padding: 0rem;
+  }
+  
+  .therapist-view h2 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .therapist-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+  }
+  
+  .therapist-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary-purple);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .therapist-info {
+    flex: 1;
+  }
+  
+  .therapist-info h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .therapist-info .specialization {
+    color: var(--primary-purple-dark);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .therapist-info .last-session {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .join-call-btn {
+    background: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .join-call-btn:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Video Call Interface */
+  .video-call-interface {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 800px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  
+  .therapist-video {
+    position: relative;
+    width: 106%;
+    height: 105%;
+  }
+
+  .patient-video {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 25%;
+    height: 30%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .video-stream {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-stream-small {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-controls-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .call-duration {
+    background: rgba(0,0,0,0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+  
+  .call-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+  }
+  
+  .control-btn:hover {
+    background: rgba(123, 104, 238, 0.1);
+  }
+  
+  .control-btn.active {
+    color: var(--primary-purple-dark);
+  }
+  
+  .control-btn.end-call {
+    background: #FF4757;
+    color: white;
+  }
+  
+  .control-btn.end-call:hover {
+    background: #E84118;
+  }
+  
+  .control-btn svg {
+    font-size: 1.5rem;
+  }
+  
+  .control-btn span {
+    font-size: 0.9rem;
+  }
+  
+  /* Chat Transcript */
+  .chat-transcript {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-purple-dark);
+  }
+  
+  .chat-header svg {
+    font-size: 1.2rem;
+  }
+  
+  .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .message {
+    display: flex;
+    max-width: 80%;
+  }
+  
+  .message.patient {
+    align-self: flex-end;
+  }
+  
+  .message.therapist {
+    align-self: flex-start;
+  }
+  
+  .message-content {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  
+  .message.patient .message-content {
+    background: #F0F0F0;
+    color: var(--text-primary);
+    border-top-left-radius: 0;
+  }
+  
+  .message.therapist .message-content {
+    background: var(--primary-purple-light);
+    color: white;
+    border-top-right-radius: 0;
+  }
+  
+  .message-time {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .video-call-interface {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      padding-top: 80px;
+    }
+    
+    .therapist-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .therapist-avatar {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+    
+    .video-placeholder.small {
+      width: 25%;
+      height: 25%;
+    }
+    
+    .call-controls {
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .therapist-view h2 {
+      font-size: 1.5rem;
+    }
+    
+    .therapist-info h3 {
+      font-size: 1.2rem;
+    }
+    
+    .video-placeholder.small {
+      width: 30%;
+      height: 30%;
+      bottom: 10px;
+      right: 10px;
+    }
+    
+    .control-btn span {
+      display: none;
+    }
+  }
