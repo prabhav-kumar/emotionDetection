@@ -60,7 +60,7 @@ const PatientContactPage = () => {
             <div className="info-item">
               <FaEnvelope className="info-icon" />
               <div className='heading'>
-              <pre className='subheading'>Email:</pre>
+                <pre className='subheading'>Email:</pre>
                 <pre>support@manoswara.com</pre>
               </div>
             </div>
@@ -74,65 +74,22 @@ const PatientContactPage = () => {
             <div className="info-item">
               <FaMapMarkerAlt className="info-icon" />
               <div className='heading'>
-              <pre className='subheading'>Address:</pre>
+                <pre className='subheading'>Address:</pre>
                 <pre>Hyderabad, Telangana</pre>
               </div>
             </div>
           </div>
-          
-          <div className="contact-form">
-            <h2>Send us a Message</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className={formErrors.name ? 'error' : ''}
-                />
-                {formErrors.name && <span className="error-message">{formErrors.name}</span>}
-              </div>
-              
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className={formErrors.email ? 'error' : ''}
-                />
-                {formErrors.email && <span className="error-message">{formErrors.email}</span>}
-              </div>
-              
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className={formErrors.subject ? 'error' : ''}
-                />
-                {formErrors.subject && <span className="error-message">{formErrors.subject}</span>}
-              </div>
-              
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  className={formErrors.message ? 'error' : ''}
-                  rows="5"
-                ></textarea>
-                {formErrors.message && <span className="error-message">{formErrors.message}</span>}
-              </div>
-              
-              <button type="submit" className="submit-btn">Send Message</button>
-            </form>
+          <div className="map-container" style={{ marginTop: '2rem', width: '100%' }}>
+            <iframe
+              title="Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.406234833635!2d78.4866713148776!3d17.3850440880707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb973e6b7e0c1b%3A0x7d1b1b1b1b1b1b1b!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
