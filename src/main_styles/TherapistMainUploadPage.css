@@ -1,0 +1,396 @@
+:root {
+    --primary-purple: #7B68EE;
+    --primary-purple-light: #9683F0;
+    --primary-purple-dark: #6A5AE0;
+    --white: #FFFFFF;
+    --light-purple: #F5EFFF;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --gray-200: #E5E7EB;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  .therapist-upload-page {
+    min-height: 100vh;
+    background-color: var(--light-purple);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .upload-main-content {
+    padding-top: 100px;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 100px);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .upload-main-content h1 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .upload-container {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    border: 2px dashed var(--gray-200);
+  }
+  
+  .upload-container.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    cursor: pointer;
+  }
+  
+  .upload-container.empty:hover {
+    border-color: var(--primary-purple-light);
+  }
+  
+  .upload-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+  }
+  
+  .file-input-label {
+    background: var(--primary-purple);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    font-weight: 500;
+  }
+  
+  .file-input-label:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .hint {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
+  .audio-player {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .audio-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .audio-icon {
+    font-size: 2rem;
+    color: var(--primary-purple);
+  }
+  
+  .audio-details h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+  }
+  
+  .audio-details p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .play-pause-btn {
+    background: var(--primary-purple);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .play-pause-btn:hover {
+    background: var(--primary-purple-dark);
+    transform: scale(1.05);
+  }
+  
+  .play-pause-btn svg {
+    font-size: 1rem;
+  }
+  
+  .progress-container {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: var(--primary-purple);
+    border-radius: var(--radius-full);
+    position: relative;
+  }
+  
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--primary-purple-dark);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .progress-container:hover .progress-bar::after {
+    opacity: 1;
+  }
+  
+  .time-display {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    min-width: 100px;
+    justify-content: space-between;
+  }
+  
+  .analysis-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .waveform-container, .emotion-container {
+    flex: 1;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .waveform-container h3, .emotion-container h3 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .waveform-container h3 svg {
+    color: var(--primary-purple);
+  }
+  
+  .waveform-canvas {
+    width: 100%;
+    height: 200px;
+    background: #f9f9f9;
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .emotion-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    gap: 2rem;
+  }
+  
+  .emotion-circle-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .emotion-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .emotion-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .emotion-circle.active::before {
+    transform: scale(1);
+  }
+  
+  .emotion-circle svg {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .emotion-circle-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .emotion-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .emotion-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .emotion-tag.active {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .dominant-emotion {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  
+  .dominant-emotion h3 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .dominant-emotion-tag {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    box-shadow: var(--shadow-md);
+  }
+  
+  @media (max-width: 1024px) {
+    .analysis-section {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .upload-main-content {
+      padding-top: 80px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .upload-container {
+      padding: 1.5rem;
+    }
+    
+    .audio-details h3 {
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .upload-main-content h1 {
+      font-size: 1.5rem;
+    }
+    
+    .player-controls {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
+    
+    .time-display {
+      justify-content: space-between;
+    }
+    
+    .audio-details h3 {
+      max-width: 200px;
+    }
+  }

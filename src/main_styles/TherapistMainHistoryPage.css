@@ -1,0 +1,236 @@
+:root {
+    --primary-purple: #7B68EE;
+    --primary-purple-light: #9683F0;
+    --primary-purple-dark: #6A5AE0;
+    --white: #FFFFFF;
+    --light-purple: #F5EFFF;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.therapist-history-page {
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.history-main-content {
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 2rem;
+  background-color: var(--light-purple);
+  flex-grow: 1;
+}
+
+.history-main-content h1 {
+  color: var(--primary-purple-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.filters-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.filter-group select {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background-color: var(--white);
+  font-size: 1rem;
+  min-width: 250px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.2);
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  text-align: center;
+  border: 1px solid #f5c6cb;
+}
+
+.session-details-container {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-top: 20px;
+}
+
+.session-details-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.session-details-container h3, 
+.session-details-container h4 {
+    color: var(--secondary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 5px;
+}
+
+.analysis-segments-container {
+    margin-top: 15px;
+}
+
+.analysis-segment {
+    background-color: var(--background-color);
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-extra-light);
+}
+
+.analysis-segment h5 {
+    color: var(--dark-gray);
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--medium-gray);
+}
+
+.segment-content {
+    display: flex;
+    flex-direction: column; /* Stack transcript and emotion vertically by default */
+    gap: 15px;
+}
+
+.transcript-history-entry,
+.emotion-history-entry {
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.transcript-history-entry {
+    background-color: var(--white);
+    border-left: 4px solid var(--accent-color-light);
+}
+
+.transcript-history-entry p strong {
+    color: var(--primary-color);
+}
+
+.transcript-history-entry p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.transcript-history-entry small {
+    font-size: 0.8em;
+    color: var(--medium-gray);
+    display: block;
+    margin-top: 5px;
+}
+
+.emotion-history-entry {
+    background-color: #f0f0f0; /* Default background */
+    border-left: 4px solid var(--secondary-color-light);
+    color: var(--dark-gray); /* Default text color */
+}
+
+.emotion-history-entry p strong {
+    color: var(--secondary-color);
+}
+
+.emotion-history-entry p {
+    margin: 0;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+.emotion-history-entry small {
+    font-size: 0.8em;
+    color: var(--medium-gray);
+    display: block;
+    margin-top: 5px;
+}
+
+
+.overall-analysis-section {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.overall-analysis-section p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* Apply side-by-side for wider screens */
+    .segment-content {
+        flex-direction: row; /* Transcript and emotion side-by-side */
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .transcript-history-entry {
+        flex-basis: 65%; /* Adjust as needed */
+    }
+    .emotion-history-entry {
+        flex-basis: 30%; /* Adjust as needed */
+    }
+}
+
+@media (max-width: 767px) {
+    .filters-container {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* Loading and Empty States */
+.loading-state,
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}

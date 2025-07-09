@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+server/.env
+
+# Vite cache
+.vite/
+
+# Coverage directory
+coverage/
+
+# Python cache and temp files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python temp audio
+api/temp_audio/
+
+# Misc
+*.swp
+*.swo
+
+# Local IDE settings
+.vscode/
+.idea/
+
+# OneDrive sync files
+*.tmp
+~$* 

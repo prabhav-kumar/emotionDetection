@@ -1,0 +1,330 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* Landing Wrapper */
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Video Background */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1; /* Video stays behind the navbar */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10; /* Keep it above the video */
+  background: rgba(255, 255, 255, 0.3); /* Transparent background with slight opacity */
+  backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
+}
+
+.logo {
+  font-size: 1.5 rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d1b3ff;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-content {
+  padding: 2rem;
+  max-width: 800px;
+}
+
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the buttons */
+  align-items: center; /* Vertically centers them */
+}
+
+.cta-buttons button {
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  flex: 1; /* Make both buttons take equal space */
+  min-width: 150px; /* Set a minimum width for buttons */
+}
+
+.cta-buttons button:first-child {
+  background-color: #8a2be2;
+  color: white;
+}
+
+.cta-buttons button.outline {
+  background-color: white;
+  color: #8a2be2;
+  border: 2px solid #8a2be2;
+}
+
+.cta-buttons button:hover {
+  transform: translateY(-2px);
+}
+.hero-highlights {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  color: #e9d4ff;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.hero-highlights li {
+  margin-bottom: 0.3rem;
+}
+
+
+/* Features Section */
+
+.features {
+  background: white;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.feature {
+  max-width: 250px;
+  padding: 2rem;
+  border: 2px solid #eee;           /* Light border (outline) */
+  border-radius: 12px;              /* Smooth rounded corners */
+  transition: all 0.3s ease;        /* Smooth hover transition */
+  background-color: #f0e2f8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Soft shadow */
+}
+
+.feature .icon {
+  font-size: 2rem;
+  color: #8a2be2;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  color: #8a2be2;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #555;
+}
+.feature:hover {
+  border-color: #8a2be2;           /* Highlight border on hover */
+  transform: translateY(-6px);     /* Slight upward lift */
+  box-shadow: 0 8px 16px rgba(138, 43, 226, 0.2); /* Glow effect */
+}
+.feature {
+  position: relative;
+  overflow: hidden;
+  max-height: 280px; /* Enough to show the default content */
+  transition: max-height 0.5s ease, box-shadow 0.3s ease;
+}
+
+.feature-extra {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  color: #444;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Hover Effect */
+.feature:hover {
+  max-height: 600px; /* Expanded height */
+  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.2);
+}
+
+.feature:hover .feature-extra {
+  max-height: 300px;
+  opacity: 1;
+}
+.how-it-works {
+  background-color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  color: #8a2be2;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.step {
+  background: #f0e2f8;
+  padding: 2rem;
+  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(138, 43, 226, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(138, 43, 226, 0.15);
+}
+
+.step h3 {
+  color: #8a2be2;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  background-color: #fafafa; /* Light gray to maintain consistency with the page */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 3rem 2rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 1rem 0;
+}
+
+.footer-column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #8a2be2; /* Matching the header color with hero section */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #555; /* Consistent text color */
+}
+
+.footer-column li:hover {
+  color: #8a2be2; /* Matching link hover effect */
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+  padding: 1rem 0;
+  background-color: #fafafa;  
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+}

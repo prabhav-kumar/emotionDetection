@@ -1,0 +1,522 @@
+:root {
+    --primary-purple: #7B68EE;
+    --primary-purple-light: #9683F0;
+    --primary-purple-dark: #6A5AE0;
+    --white: #FFFFFF;
+    --light-purple: #F5EFFF;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --gray-200: #E5E7EB;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  /* Main Content */
+  .main-content {
+    padding-top: 2rem;
+    margin-top: 120px;
+    padding-bottom: 2rem;
+    border-radius: 10px;
+    min-height: calc(100vh - 100px);
+    background-color: var(--light-purple);
+  }
+  
+  /* Patient Selection */
+  .patient-selection {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .patient-selection h2 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .patient-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .patient-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--gray-200);
+  }
+  
+  .patient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-purple-light);
+  }
+  
+  .patient-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-purple);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .patient-info {
+    flex: 1;
+  }
+  
+  .patient-info h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+  
+  .patient-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .start-call-btn {
+    background: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .start-call-btn:hover {
+    background: var(--primary-purple-dark);
+  }
+  
+  /* Video Call Interface */
+  .video-call-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 800px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  
+  .patient-video {
+    position: relative;
+    width: 106%;
+    height: 105%;
+  }
+  
+  .therapist-video {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 25%;
+    height: 30%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .video-stream {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-stream-small {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-controls-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .call-duration {
+    background: rgba(0,0,0,0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+  
+  .call-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+}
+
+/* Notification Styles */
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 1000;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.notification-item {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--gray-200);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-primary);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item.new {
+    background-color: var(--light-purple);
+    font-weight: 500;
+}
+
+.notification-item:hover {
+    background-color: var(--gray-200);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f44336;
+    color: var(--white);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Loading and Empty States */
+.loading-state,
+.error-state,
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin: var(--spacing-xl) auto;
+    max-width: 600px;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin: var(--spacing-sm) 0;
+    font-size: 1.1rem;
+}
+
+.patient-email {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: var(--spacing-sm) 0;
+}
+
+.last-session {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+  
+  .control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+  }
+  
+  .control-btn:hover {
+    background: rgba(123, 104, 238, 0.1);
+  }
+  
+  .control-btn.active {
+    color: var(--primary-purple-dark);
+  }
+  
+  .control-btn.end-call {
+    background: #FF4757;
+    color: white;
+  }
+  
+  .control-btn.end-call:hover {
+    background: #E84118;
+  }
+  
+  .control-btn svg {
+    font-size: 1.5rem;
+  }
+  
+  .control-btn span {
+    font-size: 0.9rem;
+  }
+  
+  /* Analysis Container */
+  .analysis-container {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .chat-transcript {
+    flex: 2;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-purple-dark);
+  }
+  
+  .chat-header svg {
+    font-size: 1.2rem;
+  }
+  
+  .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .message {
+    display: flex;
+    max-width: 80%;
+  }
+  
+  .message.patient {
+    align-self: flex-start;
+  }
+  
+  .message.therapist {
+    align-self: flex-end;
+  }
+  
+  .message-content {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  
+  .message.patient .message-content {
+    background: #F0F0F0;
+    color: var(--text-primary);
+    border-top-left-radius: 0;
+  }
+  
+  .message.therapist .message-content {
+    background: var(--primary-purple-light);
+    color: white;
+    border-top-right-radius: 0;
+  }
+  
+  .message-time {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  
+  .emotion-analysis {
+    flex: 1;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .emotion-analysis h3 {
+    color: var(--primary-purple-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .emotion-display {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .emotion-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .emotion-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .emotion-tag {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    }
+  
+  .transcript-message {
+    position: relative;
+    margin-right: 2rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+  
+  .emotion-tag.active {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .analysis-container {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      padding-top: 80px;
+    }
+    
+    .patient-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .video-call-interface {
+      padding: 1rem;
+    }
+    
+    .call-controls {
+      gap: 1rem;
+    }
+    
+    .video-placeholder.small {
+      width: 25%;
+      height: 25%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 1rem;
+    }
+    
+    .nav-right {
+      gap: 1rem;
+    }
+    
+    .nav-link {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .nav-icons {
+      gap: 0.75rem;
+    }
+    
+    .video-placeholder.small {
+      width: 30%;
+      height: 30%;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
