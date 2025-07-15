@@ -144,6 +144,13 @@ npm run dev
 
 ---
 
+## Deployment
+
+- This website was temporarily deployed using localtunnel, due to resource restrictions
+- You can deploy on any platform if you have enough resources, you have to accordingly update the url in /api/emotion_detection.py and vite.config.js
+
+---
+
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
